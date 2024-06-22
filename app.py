@@ -37,8 +37,9 @@ def play():
     for _ in range(2):
         pygame.mixer.init()
         pygame.mixer.music.load(f"{song_path}/{title}.mp3")
+        pygame.mixer.music.set_volume(0.1)
         pygame.mixer.music.play()
-        time.sleep(5)
+        time.sleep(7)
         pygame.mixer.quit()
 
 @eel.expose

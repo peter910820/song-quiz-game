@@ -20,13 +20,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     progress.style.width = progressTime +"%";
                 } else {
                     clearInterval(progressInterval);
-                    let title = await eel.get_title()()
-                    document.getElementById('answer').innerText = title;
-                    await eel.next_song();
-                    document.getElementById('next').disabled = false;
+                    // let title = await eel.get_title()()
+                    // document.getElementById('answer').innerText = title;
+                    // await eel.next_song();
+                    // document.getElementById('next').disabled = false;
                 }
             }
-            let progressInterval = setInterval(progressBar, 200);
+            let progressInterval = setInterval(progressBar, 180);
         }
     }
 
@@ -60,16 +60,23 @@ function nextSong() {
                     progress.style.width = progressTime +"%";
                 } else {
                     clearInterval(progressInterval);
-                    let title = await eel.get_title()()
-                    document.getElementById('answer').innerText = title;
-                    await eel.next_song();
-                    document.getElementById('next').disabled = false;
+                    // let title = await eel.get_title()()
+                    // document.getElementById('answer').innerText = title;
+                    // await eel.next_song();
+                    // document.getElementById('next').disabled = false;
                 }
             }
-            let progressInterval = setInterval(progressBar, 200);
+            let progressInterval = setInterval(progressBar, 180);
         }
     }
 
     // 設置每秒更新一次倒計時
     let countdownInterval = setInterval(decrementCount, 1000);
+}
+
+async function answerBtn(){
+    let title = await eel.get_title()()
+    document.getElementById('answer').innerText = title;
+    await eel.next_song();
+    document.getElementById('next').disabled = false;
 }
