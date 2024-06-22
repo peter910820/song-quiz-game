@@ -11,20 +11,36 @@
     </head>
 
     <body>
-        <div class="center">
-            <button type="button" class="btn btn-primary btn-lg" id="countButton" disabled>7</button>
+        <div class="container text-center">
+            <div class="row">
+              <div class="col">
+                <button type="button" class="btn btn-primary btn-lg" id="countButton" disabled>7</button>
+              </div>
+              <div class="col">
+                <img src="https://media1.tenor.com/m/A-XbbSX7PJIAAAAC/bocchi-bocchi-the-rock.gif" alt="GIF Image">
+              </div>
+            </div>
         </div>
-        <img src="https://media1.tenor.com/m/A-XbbSX7PJIAAAAC/bocchi-bocchi-the-rock.gif" alt="GIF Image">
         <div class="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="75">
             <div class="progress-bar progress-bar-striped bg-danger" style="width: 100%" id="reciprocalBar"></div>
         </div>
         <a id="answer">
         </a>
-        <div class="center">
-            <button type="button" class="btn btn-info" onclick="answerBtn()">答案</button>
-            <button type="button" class="btn btn-info" id="next" onclick="nextSong()" disabled>下一題</button>
+        <div class="container text-center">
+            <div class="row">
+              <div class="col">
+                <a class="btn btn-info" id="replay" onclick="replay()"><i class="fa-solid fa-reply fa-flip"></i></a>
+              </div>
+              <div class="col">
+                <a class="btn btn-info" onclick="answerBtn()"><i class="fa-solid fa-font fa-shake"></i></a>
+              </div>
+              <div class="col">
+                <a class="btn btn-info" id="next" onclick="nextSong()" disabled><i class="fa-solid fa-forward-step fa-flip"></i></a>
+              </div>
+            </div>
         </div>
 
+        <script src="https://kit.fontawesome.com/8f1caa7fe1.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="./app.js"></script>
         <script type="text/javascript" src="/eel.js"></script>   <!-- eel.js 這個是必需的  -->
     </body>

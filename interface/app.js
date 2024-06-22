@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     // document.getElementById('next').disabled = false;
                 }
             }
-            let progressInterval = setInterval(progressBar, 180);
+            let progressInterval = setInterval(progressBar, 150);
         }
     }
 
@@ -66,7 +66,7 @@ function nextSong() {
                     // document.getElementById('next').disabled = false;
                 }
             }
-            let progressInterval = setInterval(progressBar, 180);
+            let progressInterval = setInterval(progressBar, 150);
         }
     }
 
@@ -79,4 +79,8 @@ async function answerBtn(){
     document.getElementById('answer').innerText = title;
     await eel.next_song();
     document.getElementById('next').disabled = false;
+}
+
+async function replay(){
+    await eel.replay();
 }

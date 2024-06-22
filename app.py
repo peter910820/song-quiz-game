@@ -2,6 +2,7 @@ import eel, time, asyncio, os
 from pytube import YouTube, Playlist
 from pydub import AudioSegment
 import pygame
+import random
 
 forbidden_char = ['/','\\',':','*','?','"','<','>',"|"]
 song_path = "E:\Code\song-quiz-game\static"
@@ -13,9 +14,9 @@ def game_start(url):
     global title
     print(f"URL: {url}")
     url_parse = Playlist(url)
-    print(url_parse.video_urls)
     for p in url_parse.video_urls:
         music_list.append(p)
+    random.shuffle(music_list)
     print(music_list)
     music = YouTube(music_list[0])
     title = music.title
@@ -35,12 +36,25 @@ def convert_to_mp4(title):
 @eel.expose
 def play():
     for _ in range(2):
+        random_number = random.randint(1, 60)
         pygame.mixer.init()
         pygame.mixer.music.load(f"{song_path}/{title}.mp3")
-        pygame.mixer.music.set_volume(0.1)
+        pygame.mixer.music.set_volume(0.4)
         pygame.mixer.music.play()
+        pygame.mixer.music.set_pos(random_number)
         time.sleep(7)
         pygame.mixer.quit()
+
+@eel.expose
+def replay():
+    random_number = random.randint(1, 60)
+    pygame.mixer.init()
+    pygame.mixer.music.load(f"{song_path}/{title}.mp3")
+    pygame.mixer.music.set_volume(0.4)
+    pygame.mixer.music.play()
+    pygame.mixer.music.set_pos(random_number)
+    time.sleep(5)
+    pygame.mixer.quit()
 
 @eel.expose
 def get_title():
@@ -70,4 +84,4 @@ def convert_to_mp4(title):
 
 if __name__ == "__main__":
     eel.init('interface')
-    eel.start('./index.html',size = (600,600), position = (400, 100))
+    eel.start('./index.html',size = (400,400))
